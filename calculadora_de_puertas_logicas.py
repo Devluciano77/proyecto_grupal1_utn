@@ -8,20 +8,49 @@ def ingresarDosBinariosValidos():
         num1 = int(input(f"error {num1} no es un numero binario , ingrese un 0 o un 1"))
 
     while num2 > 1 or num2 < 0:    
-        segundoValor = int(input(f"error {segundoValor} no es un numero binario , ingrese un 0 o un 1"))
+        num2 = int(input(f"error {num2} no es un numero binario , ingrese un 0 o un 1"))
 
     # se envía los valores verificados a la funcion simuladorDeCompuertas
-    simuladorDePuertasLogicas(num1, num2)
-  
+    seleccionarOperacion(num1, num2)
 
-def simuladorDePuertasLogicas(num1, num2):
-        print(f"Compuerta AND {num1 and num2}")
-        print(f"Compuerta OR {num1 or num2}")
-        print(f"Primer valor NOT {1 - num1}")
-        print(f"Segundo valor NOT {1 - num2}")
-        print(f"Compuerta NAND {1 - (num1 and num2)}")
-        print(f"Compuerta NOR {1 - (num1 or num2)}")
-        print(f"Compuerta XOR {num1 ^ num2}")
+def AND(num1, num2):
+    return num1 & num2
+def OR(num1, num2):
+    return num1 | num2
+def NOT(num1):
+    return 1 - num1
+def NAND(num1, num2):
+    return 1 - (num1 & num2)
+def XOR(num1, num2):
+    return num1 ^ num2
+def NOR(num1, num2):
+    return 1 - (num1 | num2 )
+
+def seleccionarOperacion(num1, num2):
+     operacion = input("ingresar la operacion que quieres realizar (AND, OR, NOT, NAND, NOR, XOR)")
+
+     while True:
+        if operacion.upper() == "AND":
+            print(f"Puerta AND {AND(num1, num2)}")
+            break
+        elif operacion.upper() == "OR":
+            print(f"Puerta OR {OR(num1, num2)}") 
+            break
+        elif operacion.upper() == "NOT":  
+            print(f"Primer valor NOT {NOT(num1)}")
+            print(f"Segundo valor NOT {NOT(num2)}")
+            break
+        elif operacion.upper() == "NAND":  
+            print(f"Puerta NAND {NAND(num1, num2)}")
+            break
+        elif operacion.upper() == "NOR":   
+            print(f"Puerta NOR {NOR(num1, num2)}")
+            break
+        elif operacion.upper() == "XOR":   
+            print(f"Puerta XOR {XOR(num1, num2)}")
+            break
+        else:
+            operacion = input(f"la operacion ingresada {operacion} es incorrecta, ingresar la operacion que quieres realizar (AND, OR, NOT, NAND, NOR, XOR)")
         
 
 ingresarDosBinariosValidos()
