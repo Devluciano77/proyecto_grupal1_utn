@@ -2,7 +2,6 @@
 
 # Funcion para pedir valor
 def ingresar_NumBinario(num):
-    """Solicita al usuario un número binario (0 o 1)."""
     while True:
         valor = input(num)
         if valor in ("0", "1"):
